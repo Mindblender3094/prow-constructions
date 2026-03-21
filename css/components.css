@@ -958,3 +958,102 @@ a.contact-value:hover {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
+
+/* ==================================================
+   COMPONENT RESPONSIVE OVERRIDES
+   ================================================== */
+@media (max-width: 768px) {
+
+    /* Reset desktop margin-left on CTA inside mobile drawer */
+    .nav-links .nav-link.nav-cta {
+        margin-left: 0;
+    }
+
+    /* Ensure hamburger is easily tappable (min 44px) */
+    .hamburger {
+        padding: 10px 8px;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 560px) {
+
+    /* Shrink large stat numbers on small phones */
+    .stat-number {
+        font-size: 2.2rem;
+    }
+
+    .stat-plus {
+        font-size: 1.6rem;
+    }
+
+    /* Footer: 2 column layout before going full 1-col */
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+    /* Contact form: single column */
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+
+    /* Very small phones: footer fully single column */
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    /* Nav links: bigger tap area for fingers */
+    .nav-link {
+        padding: 12px 14px;
+        font-size: 1rem;
+    }
+
+    .nav-link.nav-cta {
+        padding: 13px 20px;
+        text-align: center;
+    }
+
+    /* Stats: reduce number size further */
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .stat-plus {
+        font-size: 1.3rem;
+    }
+
+    .stat-label {
+        font-size: 0.75rem;
+    }
+
+    /* Service cards: slightly reduced padding */
+    .service-card {
+        padding: 28px 20px;
+    }
+
+    /* Res service card: tighter spacing */
+    .res-service-card {
+        padding: 20px 16px;
+        gap: 14px;
+    }
+
+    /* Testimonial controls: bigger buttons */
+    .testimonial-btn {
+        width: 48px;
+        height: 48px;
+    }
+}

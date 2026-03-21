@@ -418,23 +418,87 @@
 }
 
 @media (max-width: 768px) {
+
+    /* Reduce section padding for tablets/phablets */
+    .residential-section,
+    .services-section,
+    .about-section,
+    .projects-section,
+    .testimonials-section,
+    .contact-section {
+        padding: 80px 0;
+    }
+
     .nav-links {
         position: fixed;
         top: var(--nav-height);
         left: 0;
         right: 0;
-        background: rgba(13, 15, 20, 0.97);
-        backdrop-filter: blur(20px);
+        background: rgba(10, 12, 17, 0.98);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
         flex-direction: column;
-        padding: 24px;
-        gap: 8px;
+        padding: 16px 20px 24px;
+        gap: 4px;
         transform: translateY(-110%);
-        transition: transform var(--transition);
+        transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         border-bottom: 1px solid var(--border-subtle);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        max-height: calc(100vh - var(--nav-height));
+        overflow-y: auto;
     }
 
     .nav-links.open {
         transform: translateY(0);
+    }
+
+    /* Regular mobile nav links — full-width tap targets */
+    .nav-links .nav-link {
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        border-radius: 10px;
+        text-align: left;
+        margin-left: 0;
+        display: block;
+    }
+
+    .nav-links .nav-link:hover,
+    .nav-links .nav-link.active {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text-primary);
+    }
+
+    /* Divider before CTA button */
+    .nav-links li:last-child {
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid var(--border-subtle);
+    }
+
+    /* "Get a Quote" — full-width gold button in mobile menu */
+    .nav-links .nav-link.nav-cta {
+        width: 100%;
+        display: block;
+        text-align: center;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-left: 0;
+        background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+        color: #0D0F14;
+        box-shadow: 0 4px 20px rgba(212, 164, 53, 0.35);
+        letter-spacing: 0.02em;
+    }
+
+    .nav-links .nav-link.nav-cta:hover {
+        background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+        transform: none;
+        box-shadow: 0 6px 24px rgba(212, 164, 53, 0.5);
     }
 
     .hamburger {
@@ -443,7 +507,7 @@
 
     .hero-content {
         margin-left: 0;
-        padding: 0 24px;
+        padding: 0 20px;
         padding-top: calc(var(--nav-height) + 40px);
     }
 
@@ -468,9 +532,48 @@
     .testimonial-card {
         padding: 32px 24px;
     }
+
+    /* Prevent badge cards from overflowing on small screens */
+    .about-badge-card {
+        position: static;
+        margin-top: 16px;
+        display: inline-flex;
+        align-self: flex-end;
+    }
+
+    .about-img-wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .residential-img-badge {
+        position: static;
+        margin-top: 16px;
+        align-self: flex-end;
+    }
+
+    .residential-img-col {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 560px) {
+
+    /* Further reduce section padding for phones */
+    .residential-section,
+    .services-section,
+    .about-section,
+    .projects-section,
+    .testimonials-section,
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .stats-section {
+        padding: 40px 0;
+    }
+
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -486,5 +589,96 @@
     .btn {
         width: 100%;
         justify-content: center;
+    }
+
+    .contact-form-wrap {
+        padding: 24px 20px;
+    }
+
+    .testimonial-card {
+        padding: 28px 20px;
+    }
+
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .contact-grid {
+        gap: 32px;
+    }
+
+    .about-grid {
+        gap: 32px;
+    }
+}
+
+/* Extra small phones (iPhone SE, Galaxy A series, etc.) */
+@media (max-width: 400px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    :root {
+        --nav-height: 64px;
+    }
+
+    .logo-img {
+        height: 44px;
+    }
+
+    .hero-content {
+        padding-top: calc(var(--nav-height) + 24px);
+    }
+
+    .hero-scroll-hint {
+        bottom: 24px;
+    }
+
+    .residential-section,
+    .services-section,
+    .about-section,
+    .projects-section,
+    .testimonials-section,
+    .contact-section {
+        padding: 48px 0;
+    }
+
+    .stats-section {
+        padding: 32px 0;
+    }
+
+    .stat-card {
+        padding: 24px 8px;
+    }
+
+    .contact-form-wrap {
+        padding: 20px 16px;
+    }
+
+    .footer {
+        padding: 48px 0 0;
+    }
+
+    .footer-grid {
+        gap: 24px;
+        padding-bottom: 40px;
+    }
+
+    .testimonial-card {
+        padding: 24px 16px;
+    }
+
+    .testimonial-text {
+        font-size: 1rem;
+    }
+
+    .filter-bar {
+        gap: 8px;
+        margin-bottom: 32px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.82rem;
     }
 }
