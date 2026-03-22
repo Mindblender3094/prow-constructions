@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
             phone: document.getElementById('form-phone').value.trim() || 'Not provided',
             service: document.getElementById('form-service').value,
             message: document.getElementById('form-message').value.trim(),
+            botcheck: document.querySelector('[name="botcheck"]').checked,
         };
 
         try {
